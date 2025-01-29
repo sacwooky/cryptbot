@@ -1,0 +1,17 @@
+*.pyc
+__pycache__/
+.env
+config.json
+.DS_Store
+.vscode/
+.idea/
+*.log
+logs/
+*.sqlite3
+db.sqlite3
+/mnt/user/appdata/cryptbot/
+!requirements.txt
+!Dockerfile
+!docker-compose.yml
+!.gitignore
+!/unraid/my_cryptbot.xml

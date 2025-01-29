@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  cryptbot:
+    container_name: cryptbot
+    image: sacwooky/cryptbot:latest
+    restart: unless-stopped
+    network_mode: bridge
+    environment:
+      - POSTGRES_HOST=192.168.5.7
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    volumes:
+      - /mnt/user/appdata/cryptbot:/app
+    ports:
+      - "8080:80"

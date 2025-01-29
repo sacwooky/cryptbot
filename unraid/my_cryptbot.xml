@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Name>cryptbot</Name>
+  <Repository>sacwooky/cryptbot:latest</Repository>
+  <Registry>https://hub.docker.com/r/sacwooky/cryptbot</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>
+    https://github.com/sacwooky/cryptbot/issues
+  </Support>
+  <Overview>
+    A bot for analyzing and trading crypto tokens.
+  </Overview>
+  <Category>Utilities</Category>
+  <TemplateURL>https://raw.githubusercontent.com/sacwooky/cryptbot/main/unraid/my_cryptbot.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/sacwooky/cryptbot/main/icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Description>
+    A bot for analyzing and trading crypto tokens.
+  </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/cryptbot</HostDir>
+      <ContainerDir>/app</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>POSTGRES_HOST</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_PORT</Name>
+      <Value>5432</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_USER</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_PASSWORD</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>TELEGRAM_BOT_TOKEN</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>TELEGRAM_CHAT_ID</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+  <Config Name="AppData Config Path" Target="/mnt/user/appdata/cryptbot" Default="/mnt/user/appdata/cryptbot" Mode="rw"/>
+</Container>

@@ -1,5 +1,8 @@
+import os
 import time
 import logging
+import json
+
 from scraper import DexScreenerScraper
 from filters import TokenFilters
 from blacklist import BlacklistManager
@@ -7,14 +10,21 @@ from fake_volume import FakeVolumeDetector
 from rugcheck import RugCheckValidator
 from trading import TradingBot
 from db import DatabaseManager
-import json
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# Load config
+# Load config file
 with open("config.json") as f:
     config = json.load(f)
+
+# Replace sensitive credentials with environment variables
+config["DB"]["password"] = os.getenv("POSTGRES_PASSWORD", "default_password")
+config["DB"]["host"] = os.getenv("POSTGRES_HOST", "localhost")
+config["DB"]["port"] = os.getenv("POSTGRES_PORT", "5432")
+
+config["telegram"]["bot_token"] = os.getenv("TELEGRAM_BOT_TOKEN", "")
+config["telegram"]["chat_id"] = os.getenv("TELEGRAM_CHAT_ID", "")
 
 # Initialize modules
 scraper = DexScreenerScraper()
@@ -26,12 +36,14 @@ trading_bot = TradingBot(config)
 db_manager = DatabaseManager(config)
 
 def main():
-    logging.info("Starting bot...")
+    logging.info("Starting CryptBot...")
+
     while True:
         try:
             # Example: Scrape token data
             token_address = "0x123...def"  # Replace with actual token address
             logging.info(f"Scraping data for token: {token_address}")
+            
             token_data = scraper.scrape_token_data(token_address)
             logging.info(f"Scraped data: {token_data}")
 
