@@ -1,11 +1,4 @@
 {
-    "DB": {
-        "dbname": "${POSTGRES_DBNAME}",
-        "user": "${POSTGRES_USER}",
-        "password": "${POSTGRES_PASSWORD}",
-        "host": "${POSTGRES_HOST}",
-        "port": "${POSTGRES_PORT}"
-    },
     "telegram": {
         "bot_token": "${TELEGRAM_BOT_TOKEN}",
         "chat_id": "${TELEGRAM_CHAT_ID}"
