@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+pandas
+sqlalchemy
+python-telegram-bot
+psycopg2-binary

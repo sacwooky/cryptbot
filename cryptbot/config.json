@@ -1,0 +1,37 @@
+{
+    "DB": {
+        "dbname": "dexscreener",
+        "user": "postgres",
+        "password": "AyAq2pFQu4Zr",
+        "host": "192.168.5.7",
+        "port": "5432"
+    },
+    "telegram": {
+        "bot_token": "7630820114:AAENUenut99hrMjGLkmboq_BPNSGEPbLynA",
+        "chat_id": "-1002343543972"
+    },
+    "filters": {
+        "min_liquidity": 5000,
+        "min_age_days": 3,
+        "max_market_cap": 1000000,
+        "volume_threshold": 100000
+    },
+    "blacklists": {
+        "coin_blacklist": [],
+        "dev_blacklist": []
+    },
+    "rugcheck": {
+        "enabled": true,
+        "url": "http://rugcheck.xyz/tokens/"
+    },
+    "fake_volume_detection": {
+        "enabled": true,
+        "threshold": 0.7
+    },
+    "trading": {
+        "enabled": true,
+        "risk_per_trade": 0.02,
+        "stop_loss": 0.1,
+        "take_profit": 0.3
+    }
+}
