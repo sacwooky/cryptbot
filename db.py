@@ -1,11 +1,19 @@
-from sqlalchemy import create_engine
+import os
 import pandas as pd
+from sqlalchemy import create_engine
 
 class DatabaseManager:
-    def __init__(self, config: dict):
+    def __init__(self):
+        # Fetch database credentials from environment variables
+        dbname = os.getenv("POSTGRES_DB", "dexscreener")
+        user = os.getenv("POSTGRES_USER", "postgres")
+        password = os.getenv("POSTGRES_PASSWORD", "")
+        host = os.getenv("POSTGRES_HOST", "localhost")
+        port = os.getenv("POSTGRES_PORT", "5432")
+
+        # Create the SQLAlchemy database engine
         self.engine = create_engine(
-            f"postgresql+psycopg2://{config['DB']['user']}:{config['DB']['password']}@"
-            f"{config['DB']['host']}:{config['DB']['port']}/{config['DB']['dbname']}"
+            f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
         )
 
     def save_token_data(self, token_data: dict):
