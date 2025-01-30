@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
   <Name>cryptbot</Name>
-  <Repository>sacwooky/cryptbot:latest</Repository>
-  <Registry>https://hub.docker.com/r/sacwooky/cryptbot</Registry>
+  <Repository>sacwoo/cryptbot:latest</Repository>
+  <Registry>https://hub.docker.com/r/sacwoo/cryptbot</Registry>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
   <Support>
