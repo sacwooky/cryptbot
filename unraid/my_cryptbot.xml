@@ -63,5 +63,4 @@
       <Value></Value>
     </Variable>
   </Environment>
-  <Config Name="AppData Config Path" Target="/mnt/user/appdata/cryptbot" Default="/mnt/user/appdata/cryptbot" Mode="rw"/>
 </Container>
