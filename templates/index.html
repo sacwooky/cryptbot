@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Bot UI</title>
+</head>
+<body>
+    <h1>Crypto Bot Status: {{ status }}</h1>
+    <h2>Token Data</h2>
+    <table border="1">
+        <tr>
+            <th>Token</th>
+            <th>Price</th>
+            <th>Volume</th>
+        </tr>
+        {% for token in tokens %}
+        <tr>
+            <td>{{ token.name }}</td>
+            <td>{{ token.price }}</td>
+            <td>{{ token.volume }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

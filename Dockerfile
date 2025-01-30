@@ -1,4 +1,4 @@
-# Use an official Python runtime with additional system dependencies
+# Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
 # Install system dependencies for psycopg2
@@ -10,11 +10,14 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy project files into the container
+# Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install required Python packages
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the bot script when the container launches
-CMD ["python", "bot.py"]
+# Expose the UI port
+EXPOSE 5000
+
+# Run the bot script and Flask app
+CMD ["python", "app.py"]
