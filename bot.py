@@ -41,7 +41,7 @@ def main():
     while True:
         try:
             # Example: Scrape token data
-            token_address = "0x123...def"  # Replace with actual token address
+            token_address = "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"  # Replace with actual token address
             logging.info(f"Scraping data for token: {token_address}")
             
             token_data = scraper.scrape_token_data(token_address)
