@@ -19,5 +19,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose the UI port
 EXPOSE 5000
 
-# Run the bot script and Flask app
+# Run the Flask app
 CMD ["python", "app.py"]

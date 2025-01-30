@@ -7,12 +7,12 @@ services:
     restart: unless-stopped
     network_mode: bridge
     environment:
-      - POSTGRES_HOST=192.168.5.7
-      - POSTGRES_PORT=5432
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - POSTGRES_HOST=${POSTGRES_HOST}  # User must provide this value
+      - POSTGRES_PORT=${POSTGRES_PORT}  # User must provide this value
+      - POSTGRES_USER=${POSTGRES_USER}  # User must provide this value
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}  # User must provide this value
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}  # User must provide this value
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}  # User must provide this value
     volumes:
       - /mnt/user/appdata/cryptbot:/app
     ports:
