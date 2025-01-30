@@ -3,7 +3,7 @@ version: '3.8'
 services:
   cryptbot:
     container_name: cryptbot
-    image: sacwooky/cryptbot:latest
+    build: .  # Build the image using the Dockerfile in the current directory
     restart: unless-stopped
     network_mode: bridge
     environment:
@@ -14,6 +14,6 @@ services:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}  # User must provide this value
       - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}  # User must provide this value
     volumes:
-      - /mnt/user/appdata/cryptbot:/app
+      - /mnt/user/appdata/cryptbot:/app  # Map host folder to /app in container
     ports:
       - "8080:80"
