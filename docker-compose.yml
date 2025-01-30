@@ -3,17 +3,17 @@ version: '3.8'
 services:
   cryptbot:
     container_name: cryptbot
-    build: .  # Build the image using the Dockerfile in the current directory
+    image: sacwoo/cryptbot:latest  # Pull the latest image from Docker Hub
     restart: unless-stopped
     network_mode: bridge
     environment:
-      - POSTGRES_HOST=${POSTGRES_HOST}  # User must provide this value
-      - POSTGRES_PORT=${POSTGRES_PORT}  # User must provide this value
-      - POSTGRES_USER=${POSTGRES_USER}  # User must provide this value
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}  # User must provide this value
-      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}  # User must provide this value
-      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}  # User must provide this value
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
     volumes:
-      - /mnt/user/appdata/cryptbot:/app  # Map host folder to /app in container
+      - /mnt/user/appdata/cryptbot:/app  # Ensure this directory exists
     ports:
       - "8080:80"
